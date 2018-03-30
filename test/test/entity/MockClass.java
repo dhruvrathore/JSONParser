@@ -1,8 +1,10 @@
-package entity;
+package test.entity;
 
 import java.util.List;
 
 import org.w3c.dom.Entity;
+
+import entity.JSONElement;
 
 public class MockClass {
 

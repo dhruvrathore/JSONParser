@@ -8,9 +8,9 @@ import org.junit.Test;
 
 import Tokenizer.TokenBuilder;
 import entity.JSONObject;
-import entity.NestedJSONTest;
-import entity.TestJSONObject;
 import entity.Token;
+import test.entity.NestedJSONTest;
+import test.entity.TestJSONObject;
 
 public class TreeParserMicroTest {
 

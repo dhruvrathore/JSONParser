@@ -1,4 +1,4 @@
-package entity;
+package test.entity;
 
 import java.util.List;
 

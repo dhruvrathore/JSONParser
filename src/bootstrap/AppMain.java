@@ -6,8 +6,8 @@ import java.util.List;
 import Parser.TreeParser;
 import Tokenizer.TokenBuilder;
 import entity.JSONObject;
-import entity.TestJSONObject;
 import entity.Token;
+import test.entity.TestJSONObject;
 
 public class AppMain {
 

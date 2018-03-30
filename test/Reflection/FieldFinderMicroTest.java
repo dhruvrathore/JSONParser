@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 import org.junit.Test;
 
-import entity.MockClass;
+import test.entity.MockClass;
 
 
 public class FieldFinderMicroTest {
