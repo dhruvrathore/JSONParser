@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import entity.Token;
+import entity.TokenConstants;
 
 public class TokenBuilder {
 	
@@ -25,10 +26,14 @@ public class TokenBuilder {
 		List<Token> tokens = new ArrayList<>();
 		while(!jsonStr.isEmpty()){
 			boolean isFound = false;
+			jsonStr = jsonStr.trim();
 			for(TokenInfo tokenInfo: listTokenInfo){
 				Matcher matcher = tokenInfo.getRegex().matcher(jsonStr);
 				if(matcher.find()){
-					tokens.add(new Token(tokenInfo.getTokenType(), matcher.group().trim()));
+					String matchedComponent = matcher.group().trim();
+					if(tokenInfo.getTokenType()== TokenConstants.STRINGIDENTIFIER)
+						matchedComponent = matchedComponent.replace("\"", "");
+					tokens.add(new Token(tokenInfo.getTokenType(),matchedComponent));
 					jsonStr = matcher.replaceFirst("");
 					isFound = true;
 					break;

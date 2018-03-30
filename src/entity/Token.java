@@ -31,6 +31,13 @@ public class Token {
 		return "Token [tokenType=" + tokenType + ", token=" + token + "]";
 	}
 	
+	@Override
+	public Token clone(){
+		return new Token(this.tokenType,this.token);
+		
+	}
+	
+	
 	
 
 }

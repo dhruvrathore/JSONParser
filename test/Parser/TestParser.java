@@ -18,7 +18,7 @@ public class TestParser {
 		System.out.println(tokens);
 		Parser parser = new Parser(tokens);
 		try{
-			parser.parse();
+			parser.validate();
 		}catch(ParseException e){
 			Assert.fail("Should not throw Exception");
 		}
@@ -29,6 +29,6 @@ public class TestParser {
 		List<Token> tokens = tokenBuilder.createTokens("{\"name\":\"John\",\"age\":30,\"cars\":[\"Ford\",\"BMW\",\"Fiat\"}");
 		System.out.println(tokens);
 		Parser parser = new Parser(tokens);
-		parser.parse();
+		parser.validate();
 	}
 }

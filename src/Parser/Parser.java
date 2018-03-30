@@ -24,7 +24,7 @@ public class Parser {
 		}
 	}
 	
-	public void parse() throws Exception{
+	public void validate() throws Exception{
 		getNextToken();
 		object();
 		if(lookAhead.getTokenType()!=TokenConstants.EPSILON)
@@ -32,6 +32,7 @@ public class Parser {
 	}
 	
 	private void object() throws ParserException{
+		// constructor of class should be called here
 		if(lookAhead.getTokenType()==TokenConstants.OPENCURLY){
 			// object => { BA }
 			getNextToken();
@@ -79,6 +80,7 @@ public class Parser {
 			object();
 		}else if(lookAhead.getTokenType()==TokenConstants.NULLIDENTIFIER || lookAhead.getTokenType()==TokenConstants.TRUEIDENTIFIER || lookAhead.getTokenType()==TokenConstants.FALSEIDENTIFIER || lookAhead.getTokenType()==TokenConstants.STRINGIDENTIFIER || lookAhead.getTokenType()==TokenConstants.NUMBERIDENTIFIER){
 			// V-> null | true | false | string | number
+			// return new JSONObject(lookAhead.getToken());
 			getNextToken();
 		}else if(lookAhead.getTokenType()==TokenConstants.OPENSQUARE){
 			// V-> [V Val]

@@ -15,6 +15,6 @@ public class TokenFill {
 		tokenBuilder.add("true", TokenConstants.TRUEIDENTIFIER);
 		tokenBuilder.add("false", TokenConstants.FALSEIDENTIFIER);
 		tokenBuilder.add("[0-9]+", TokenConstants.NUMBERIDENTIFIER);
-		tokenBuilder.add("\"[a-zA-Z]+\"", TokenConstants.STRINGIDENTIFIER);
+		tokenBuilder.add("\"[a-z A-Z]+\"", TokenConstants.STRINGIDENTIFIER);
 	}
 }
