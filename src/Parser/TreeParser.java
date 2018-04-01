@@ -100,7 +100,7 @@ public class TreeParser {
 			// V-> null | true | false | string | number
 			Token literal = lookAhead.clone();
 			getNextToken();
-			return JSONElementDelegator.fetchJSONElementAndExecuteMethod(literal);
+			return JSONElementDelegator.fetchJSONElementAndExecuteMethod(literal,fieldForKey.getType().getType().getName());
 		}else if(lookAhead.getTokenType()==TokenConstants.OPENSQUARE){
 			// V-> [V Val]
 			JSONArray jsonArray = new JSONArray();

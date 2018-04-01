@@ -9,6 +9,7 @@ import org.junit.Test;
 import Tokenizer.TokenBuilder;
 import entity.JSONObject;
 import entity.Token;
+import test.entity.FloatMockObject;
 import test.entity.NestedJSONTest;
 import test.entity.TestJSONObject;
 
@@ -26,6 +27,22 @@ public class TreeParserMicroTest {
 		System.out.println(tokens);
 		TreeParser parser = new TreeParser(tokens);
 		JSONObject obj = parser.parse(TestJSONObject.class);
+		Assert.assertEquals(expectedObject,obj.getValue());
+		
+	}
+	
+	@Test
+	public void testparsingForFloat() throws Exception{
+		
+		FloatMockObject expectedObject = new FloatMockObject();
+		expectedObject.setName("John");
+		expectedObject.setAge(30.04f);
+		expectedObject.setCars(Arrays.asList("Ford","BMW","Fiat"));
+		TokenBuilder tokenBuilder = new TokenBuilder();
+		List<Token> tokens = tokenBuilder.createTokens("{\"name\":\"John\",\"age\":30.04,\"cars\":[\"Ford\",\"BMW\",\"Fiat\"]}");
+		System.out.println(tokens);
+		TreeParser parser = new TreeParser(tokens);
+		JSONObject obj = parser.parse(FloatMockObject.class);
 		Assert.assertEquals(expectedObject,obj.getValue());
 		
 	}

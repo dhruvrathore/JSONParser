@@ -2,13 +2,12 @@ package test.entity;
 
 import java.util.List;
 
-public class TestJSONObject {
-
+public class FloatMockObject {
 	private String name;
-	private int age;
+	private float age;
 	private List<String> cars;
 
-	public TestJSONObject() {
+	public FloatMockObject() {
 		super();
 	}
 
@@ -20,11 +19,11 @@ public class TestJSONObject {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public float getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(float age) {
 		this.age = age;
 	}
 
@@ -40,7 +39,7 @@ public class TestJSONObject {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + age;
+		result = prime * result + Float.floatToIntBits(age);
 		result = prime * result + ((cars == null) ? 0 : cars.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
@@ -54,8 +53,8 @@ public class TestJSONObject {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TestJSONObject other = (TestJSONObject) obj;
-		if (age != other.age)
+		FloatMockObject other = (FloatMockObject) obj;
+		if (Float.floatToIntBits(age) != Float.floatToIntBits(other.age))
 			return false;
 		if (cars == null) {
 			if (other.cars != null)
@@ -70,4 +69,9 @@ public class TestJSONObject {
 		return true;
 	}
 
+	
 }
+
+
+
+
