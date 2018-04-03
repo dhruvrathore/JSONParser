@@ -12,7 +12,6 @@ public class FieldFinder {
 
 	public static Map<String,ClassField> getAllFieldsForClass(Class classToInspect){
 		List<Field> fields = Arrays.asList(classToInspect.getDeclaredFields());
-		System.out.println(fields);
 		Map<String,ClassField> fieldMap = new HashMap<>();
 		fields.forEach((each)->{
 			fieldMap.put(each.getName(),new ClassField(each.getName(), each) );

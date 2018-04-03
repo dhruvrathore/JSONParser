@@ -9,6 +9,8 @@ import org.junit.Test;
 import Tokenizer.TokenBuilder;
 import entity.JSONObject;
 import entity.Token;
+import test.entity.CountriesCity;
+import test.entity.Country;
 import test.entity.FloatMockObject;
 import test.entity.NestedJSONTest;
 import test.entity.TestJSONObject;
@@ -49,11 +51,25 @@ public class TreeParserMicroTest {
 	
 	@Test
 	public void testParsingNested() throws Exception{
-		String JSON = "{\"name\":\"John\",\"age\":31,\"Country\":{\"india\":{\"cities\":[\"jaipur\",\"delhi\",\"gzb\",\"noida\"]},\"usa\":{\"cities\":[\"new york\",\"florida\",\"maimi\"]}}}";
+		String JSON = "{\"name\":\"John\",\"age\":31,\"Country\":{\"india\":{\"cities\":[\"jaipur\",\"delhi\",\"gzb\",\"noida\"]},\"usa\":{\"cities\":[\"new york\",\"florida\",\"miami\"]}}}";
+		NestedJSONTest jsonObject = new NestedJSONTest();
+		jsonObject.setName("John");
+		jsonObject.setAge(31);
+		
+		CountriesCity india = new CountriesCity();
+		india.setCities(Arrays.asList("jaipur","delhi","gzb","noida"));
+		CountriesCity usa = new CountriesCity();
+		usa.setCities(Arrays.asList("new york","florida","miami"));
+		Country country = new Country();
+		country.setIndia(india);
+		country.setUsa(usa);
+		
+		jsonObject.setCountry(country);
 		TokenBuilder tokenBuilder = new TokenBuilder();
 		List<Token> tokens = tokenBuilder.createTokens(JSON);
 		TreeParser parser = new TreeParser(tokens);
 		JSONObject obj = parser.parse(NestedJSONTest.class);
 		System.out.println(obj.getValue());
+		Assert.assertEquals(jsonObject, obj.getValue());
 	}
 }

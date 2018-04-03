@@ -22,7 +22,7 @@ public class NumericJSONElement implements JSONElement {
 			return number.floatValue();
 		else if(type.equals("double"))
 			return number.doubleValue();
-		return null;
+		return number;
 	}
 
 

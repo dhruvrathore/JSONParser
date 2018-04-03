@@ -1,26 +1,27 @@
 package Reflection;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.Map;
 
 import org.junit.Test;
 
-import test.entity.MockClass;
+import entity.ClassField;
+import org.junit.Assert;
 
+
+class StubField{
+	private int intField;
+	private String stringField;
+}
 
 public class FieldFinderMicroTest {
 	
 	@Test
 	public void testgetAllFieldsForClass(){
-		FieldFinder fieldFinder = new FieldFinder();
-		fieldFinder.getAllFieldsForClass(MockClass.class);
+		Map<String,ClassField> allClassFields = FieldFinder.getAllFieldsForClass(StubField.class);
+		Assert.assertTrue(allClassFields.size()==2);
+		Assert.assertTrue(allClassFields.containsKey("intField"));
+		Assert.assertTrue(allClassFields.containsKey("stringField"));
+		
 	}
-	@Test
-	public void testNullForInt(){
-		// null entry for numeric type is not allowed
-	}
-	@Test
-	public void testNullForInteger(){
-		// null is valid for Integer as integer is an object rather than primitive datatype
-	}
+
 }
