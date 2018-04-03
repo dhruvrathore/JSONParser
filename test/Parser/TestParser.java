@@ -31,4 +31,32 @@ public class TestParser {
 		Parser parser = new Parser(tokens);
 		parser.validate();
 	}
+	
+	@Test(expected = ParserException.class)
+	public void testparsingWithExceptionClosedCurlyBracesNotPresent() throws Exception{
+		TokenBuilder tokenBuilder = new TokenBuilder();
+		List<Token> tokens = tokenBuilder.createTokens("{\"name\":\"John\",\"age\":30,\"cars\":[\"Ford\",\"BMW\",\"Fiat\"");
+		System.out.println(tokens);
+		Parser parser = new Parser(tokens);
+		parser.validate();
+	}
+	
+	@Test(expected = ParserException.class)
+	public void testparsingWithNoOpeningBraces() throws Exception{
+		TokenBuilder tokenBuilder = new TokenBuilder();
+		List<Token> tokens = tokenBuilder.createTokens("\"name\":\"John\",\"age\":30,\"cars\":[\"Ford\",\"BMW\",\"Fiat\"}");
+		System.out.println(tokens);
+		Parser parser = new Parser(tokens);
+		parser.validate();
+	}
+	
+	@Test(expected = ParserException.class)
+	public void testparsingWithNoSeparator() throws Exception{
+		TokenBuilder tokenBuilder = new TokenBuilder();
+		List<Token> tokens = tokenBuilder.createTokens("\"name\"\"John\",\"age\":30,\"cars\":[\"Ford\",\"BMW\",\"Fiat\"}");
+		System.out.println(tokens);
+		Parser parser = new Parser(tokens);
+		parser.validate();
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import Parser.ParserException;
 import entity.Token;
 import entity.TokenConstants;
 import org.junit.Assert;
@@ -35,6 +36,12 @@ public class TokenBuilderMicroTest {
 		expectedTokens.add(new Token(TokenConstants.STRINGIDENTIFIER, "John Lang "));
 		expectedTokens.add(new Token(TokenConstants.CLOSECURLY, "}"));
 		Assert.assertEquals(expectedTokens,tokens);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCreateTokensForInvalidTokens() throws Exception{
+		TokenBuilder tokenBuilder = new TokenBuilder();
+		tokenBuilder.createTokens("{\"name\";\"John\"}");
 	}
 	
 	@Test

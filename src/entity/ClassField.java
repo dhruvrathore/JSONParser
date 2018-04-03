@@ -16,18 +16,11 @@ public class ClassField {
 		return nameOfField;
 	}
 
-	public void setNameOfField(String nameOfField) {
-		this.nameOfField = nameOfField;
-	}
 
 	public Field getType() {
 		return field;
 	}
 
-	public void setType(Field field) {
-		this.field = field;
-	}
-	
 	
 	
 	

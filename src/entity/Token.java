@@ -14,17 +14,11 @@ public class Token {
 		return tokenType;
 	}
 	
-	public void setTokenType(int tokenType) {
-		this.tokenType = tokenType;
-	}
 	
 	public String getToken() {
 		return token;
 	}
 	
-	public void setToken(String token) {
-		this.token = token;
-	}
 
 	@Override
 	public String toString() {

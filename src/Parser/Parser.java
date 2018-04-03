@@ -16,7 +16,6 @@ public class Parser {
 	private void getNextToken(){
 		if(tokens!=null && !tokens.isEmpty()){
 			lookAhead = tokens.get(0);
-			System.out.println(lookAhead.getToken());
 			tokens.remove(0);
 		}
 		else{

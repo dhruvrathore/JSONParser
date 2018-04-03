@@ -11,9 +11,6 @@ public class JSONArray implements JSONElement {
 		objectArray = new ArrayList<>();
 	}
 	
-	public JSONArray(List<JSONElement> objArray){
-		objectArray = objArray;
-	}
 	
 	public void add(JSONElement toAdd){
 		objectArray.add(toAdd);
@@ -28,9 +25,5 @@ public class JSONArray implements JSONElement {
 		return convertedList;
 	}
 
-	public List<JSONElement> getList() {
-		// TODO Auto-generated method stub
-		return objectArray;
-	}
 
 }

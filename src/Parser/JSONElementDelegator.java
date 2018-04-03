@@ -20,7 +20,7 @@ public class JSONElementDelegator {
 			return new NullJSONElement();
 		}
 		else if(token.getTokenType() == TokenConstants.TRUEIDENTIFIER || token.getTokenType()==TokenConstants.FALSEIDENTIFIER){
-			return new BooleanJSONElement(Boolean.getBoolean(token.getToken()));
+			return new BooleanJSONElement(Boolean.valueOf(token.getToken()));
 		}
 		else if(token.getTokenType()==TokenConstants.NUMBERIDENTIFIER){
 			return new NumericJSONElement(PrimitiveToClassConverter.convertToClass(token.getToken(),type),type);
